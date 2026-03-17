@@ -12,6 +12,7 @@ export const register = async (req, res) => {
         if(!username || !email || !password){
             return res.status(400).json({success:false,message:"Fill all the require Fields"})
         }
+        console.log(req.body)
 
         const user=await auth.findOne({email});
         if(user){

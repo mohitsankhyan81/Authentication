@@ -2,9 +2,15 @@ import express from "express"
 import dotenv from "dotenv"
 import mongoose, { mongo } from "mongoose";
 import userrouter from "./router/user_router.js";
+import cors from "cors"
 dotenv.config();
 const app=express();
 app.use(express.json())
+app.use(express.urlencoded())
+app.use(cors({
+    origin:process.env.FRONT_END,
+    credentials:true
+}))
 
 
 const MONGO_URI=process.env.MONGO_URI;

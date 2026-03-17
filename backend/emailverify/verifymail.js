@@ -25,7 +25,7 @@ export const verifyEmail = async (token, email) => {
         Thank you for registering. Please verify your email address to activate your account.
       </p>
       
-      <a href="http://localhost:5173/verify-email/${token}" 
+      <a href="http://localhost:5173/verify/${token}" 
          style="display:inline-block; margin-top:20px; padding:12px 25px; 
          background:#4CAF50; color:white; text-decoration:none; border-radius:5px;">
          Verify Email
@@ -41,12 +41,6 @@ export const verifyEmail = async (token, email) => {
   `
    };
 
-transporter.sendMail(mailConfigration, (error, info) => {
-   if (error) {
-      throw error;
-   }
-   console.log("email send successfully");
-   console.log(info)
-})
+transporter.sendMail(mailConfigration)
 
 }
